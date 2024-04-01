@@ -31,6 +31,6 @@ pinned_maven_install()
 # Install a specific version of python to be used by the Bazel build with the invocation below.
 # Before this will work, you need to follow the instructions in //tools/python_interpreter.
 
-#register_toolchains(
-#    "//tools/python_interpreter:captive_python_toolchain",
-#)
+register_toolchains(
+    "//tools/python_interpreter:captive_python_toolchain",
+)

@@ -27,21 +27,22 @@ py_binary(
 #    end up with ./captive_python3/bin/python3 existing on the filesystem.
 # 2. Uncomment the rule invocations below.
 # 3. Uncomment the python toolchain invocation in the WORKSPACE file.
+load("@bazel_tools//tools/python:toolchain.bzl", "py_runtime_pair")
 
-#py_runtime(
-#    name = "python3",
-#    interpreter = "captive_python3/bin/python3",
-#    python_version = "PY3",
-#    visibility = ["//visibility:public"],
-#)
+py_runtime(
+    name = "python3",
+    interpreter = "captive_python3/bin/python3",
+    python_version = "PY3",
+    visibility = ["//visibility:public"],
+)
 
-#py_runtime_pair(
-#    name = "captive_python_runtimes",
-#    py3_runtime = ":python3",
-#)
+py_runtime_pair(
+    name = "captive_python_runtimes",
+    py3_runtime = ":python3",
+)
 
-#toolchain(
-#    name = "captive_python_toolchain",
-#    toolchain = ":captive_python_runtimes",
-#    toolchain_type = "@bazel_tools//tools/python:toolchain_type",
-#)
+toolchain(
+    name = "captive_python_toolchain",
+    toolchain = ":captive_python_runtimes",
+    toolchain_type = "@bazel_tools//tools/python:toolchain_type",
+)
